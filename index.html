@@ -4,39 +4,20 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>cinema</title>
-   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
    <style>
-      body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
-      .container { width: 100%; max-width: 1000px; }
-
-      :root { --plyr-color-main: #e50914; }
+      body { margin: 0; background-color: #000; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+      .video-container { width: 100%; max-width: 900px; aspect-ratio: 16/9; }
+      iframe { width: 100%; height: 100%; border: none; }
    </style>
 </head>
 <body>
 
-<div class="container">
-   <video id="player" playsinline controls data-poster="">
-      <source src="https://video.google.com/api/stats/watchtime?ns=gd&el=embedded&cpn=kktAoaP5rRYk5wrL&ver=2&cmt=3.157&fmt=134&fs=0&rt=81.002&euri=https://drive.google.com/&lact=3372&cl=896196715&state=paused&volume=100&cbr=Chrome&cbrver=109.0.0.0&c=WEB_EMBEDDED_PLAYER&cver=1.20260407.04.00&cplayer=UNIPLAYER&cos=Windows&cosver=10.0&cplatform=DESKTOP&hl=vi_VN&cr=VN&len=72.795&afmt=140&idpj=-8&ldpj=-30&rti=81&st=3.157&et=3.157&muted=0&docid=1C6xXcmgIGfHyadegDwOO6Rcrbkf98b5E" type="application/x-mpegURL">
-   </video>
-</div>
+   <div class="video-container">
+      <iframe
+         src="https://drive.google.com/file/d/1X3sy_R5n1RBCtnsNzml8yeNBbU8RABAS/preview"
+         allow="autoplay">
+      </iframe>
+   </div>
 
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-   document.addEventListener('DOMContentLoaded', () => {
-      const video = document.querySelector('video');
-      const source = video.getElementsByTagName('source') [0].src;
-
-      if (Hls.isSupported()) {
-         const hls = new Hls();
-         hls.loadSource(source);
-         hls.attachMedia(video);
-      }
-
-      const player = new Plyr(video, {
-         fullscreen: { enabled: true, fallback: true, iosNative: true }
-      });
-   });
-</script>
 </body>
 </html>
