@@ -4,51 +4,30 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>cinema</title>
-   <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
    <style>
-      body { margin: 0; background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; }
-      .container { width: 100%; max-width: 1000px; }
-
-      :root { --plyr-color-main: #e50914; }
+      body { margin: 0; background: #000; overflow: hidden; }
+      .video-wrapper {
+         position: relative;
+         padding-bottom: 56.25%;
+         height: 0;
+      }
+      .video-wrapper iframe {
+         position: absolute;
+         top: 0; left: 0;
+         width: 100%; height: 100%;
+         border: none; 
+      }
    </style>
 </head>
 <body>
-
-<div class="container">
-   <video id="player" playsinline controls data-poster="">
-      <source src="https://hls-player.phim30.me/hls/vua-su-tu-17554292845898%7Ctap-full/master.m3u8?
-
-token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6InYxIn0.eyJpc3MiOiJodHRwczovL3BoaW0zMC5tZSIsImlhdCI6MTc3NjAyNTU2Mywi
-
-bmJmIjoxNzc2MDI1NTU4LCJleHAiOjE3NzYwMjU4NjMsImVzcmMiOiJuU2FVNWxCc2FkckJYY3ZlKzl2ZHlYcnNsN3dncERtK0FjV3lWU2p1TD
-
-Z0d252d3RzWUw2dFpyTklqbDFqOTVVSHVUMCIsIml2IjoiYUtYR1lPd1hRYXoySEpVSSIsInRhZyI6IkdUNmRGeElDWjlkbWtsd05qeW1UbGc9
-
-PSIsImlwIjoiNDIuMTE4LjUxLjE3NSIsInVhIjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaX
-
-QvNTM3LjM2IChLSCIsImtpZCI6InYxIiwic2x1ZyI6InZ1YS1zdS10dS0xNzU1NDI5Mjg0NTg5OHx0YXAtZnVsbCJ9.9oKIV6wpXqfc11vTjpE6aDpH
-
-4SoOkCToATETGrwdhac" type="application/x-mpegURL">
-   </video>
-</div>
-
-<script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-<script>
-   document.addEventListener('DOMContentLoaded', () => {
-      const video = document.querySelector('video');
-      const source = video.getElementsByTagName('source') [0].src;
-
-      if (Hls.isSupported()) {
-         const hls = new Hls();
-         hls.loadSource(source);
-         hls.attachMedia(video);
-      }
-
-      const player = new Plyr(video, {
-         fullscreen: { enabled: true, fallback: true, iosNative: true }
-      });
-   });
-</script>
+   <div class="video-wrapper">
+      <iframe 
+         src="https://sub.moviking.com/video/7/0936e7a00f89832df733157771746401"
+         allowfullscreen="true"
+         webkitallowfullscreen="true"
+         mozallowfullscreen="true"
+         allow="autoplay; fullscreen">
+      </iframe>
+   </div>
 </body>
 </html>
